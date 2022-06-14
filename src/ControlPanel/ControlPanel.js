@@ -1,15 +1,29 @@
-import ButtonControl from '../ButtonControl';
-import { actionOptions, flavorOptions, actions } from '../const';
-import './ControlPanel.css';
+import ButtonControl from "../ButtonControl";
+import { actionOptions, flavorOptions, actions } from "../const";
+import "./ControlPanel.css";
 
-const ControlPanel = ({ selectedAction, handleActionClick, selectedType, handleTypeClick }) => {
+const ControlPanel = ({
+  selectedAction,
+  handleActionClick,
+  selectedType,
+  handleTypeClick,
+}) => {
   const disableFlavorOptions =
-    selectedAction !== actions.add.action && selectedAction !== actions.flavor.action;
+    selectedAction !== actions.add.action &&
+    selectedAction !== actions.flavor.action;
 
   return (
     <>
-      <div className='panel'>
-        {
+      <div className="panel">
+        {actionOptions.map((el, index) => {
+          return (
+            <ButtonControl
+              key={index.name}
+              selected={selectedAction}
+              option={el}
+              onClick={handleActionClick}
+            />
+          );
           // This return statement will be returned when `actionOptions`
           // are mapped
           // return (
@@ -20,10 +34,19 @@ const ControlPanel = ({ selectedAction, handleActionClick, selectedType, handleT
           //     onClick={handleActionClick}
           //   />
           // );
-        }
+        })}
       </div>
-      <div className='panel'>
-        {
+      <div className="panel">
+        {flavorOptions.map((el, index) => {
+          return (
+            <ButtonControl
+              key={index.name}
+              selected={selectedType}
+              option={el}
+              onClick={handleTypeClick}
+              disabled={true} //'ReplaceWithCorrectValue'
+            />
+          );
           // This return statement will be returned when `flavorOptions`
           // are mapped
           // return (
@@ -35,7 +58,7 @@ const ControlPanel = ({ selectedAction, handleActionClick, selectedType, handleT
           //     disabled={true} //'ReplaceWithCorrectValue'
           //   />
           // );
-        }
+        })}
       </div>
     </>
   );
