@@ -10,6 +10,7 @@ import {
   alterFillingToDonut,
   removeDonutFromBox,
   alterDonutFlavor,
+  addDonutBox,
 } from "./utils";
 
 const App = () => {
@@ -18,13 +19,9 @@ const App = () => {
   const [selectedType, setSelectedType] = useState("glazed");
 
   const handleActionClick = (label) => {
-    // TODO update the selectedAction state to reflect the new label
-    // const labelCopy = label.splice();  copy the value for arrays when modifying
-    //react knows to update bc new object/new addr
     setSelectedAction(label);
   };
 
-  /* ASHLEY CHECK IN ON THESE */
   const handleTypeClick = (label) => {
     setSelectedType(label);
   };
@@ -62,6 +59,12 @@ const App = () => {
         setDonutShelfData(
           alterDonutFlavor(donutShelfData, userId, donutId, selectedType)
         );
+        break;
+      case actions.addbox.action:
+        console.log("add new box button clicked");
+        let newName = window.prompt("Type in your name: ", "");
+        newName = newName.concat("'s Box");
+        setDonutShelfData(addDonutBox(donutShelfData, newName));
         break;
       default:
         console.error("An invalid action was passed to handleBoxClick");

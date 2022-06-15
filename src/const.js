@@ -19,6 +19,10 @@ export const actions = {
     name: "Flavor",
     action: "changeFlavor",
   },
+  addbox: {
+    name: "Add Box",
+    action: "addbox",
+  },
 };
 
 export const actionOptions = [
@@ -27,6 +31,7 @@ export const actionOptions = [
   actions.add,
   actions.remove,
   actions.flavor,
+  actions.addbox,
 ];
 
 export const flavorOptions = [

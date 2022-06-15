@@ -2,6 +2,10 @@ const getUniqueDonutId = () => {
   return `donut-${Math.floor(Math.random() * 100000 + 1)}`;
 };
 
+const getUniqueBoxId = () => {
+  return `user-${Math.floor(Math.random() * 100000 + 1)}`;
+};
+
 const buildDonut = (type) => {
   return {
     flavor: type,
@@ -9,6 +13,21 @@ const buildDonut = (type) => {
     filled: false,
     donutId: getUniqueDonutId(),
   };
+};
+
+const buildDonutBox = (boxName) => {
+  return {
+    name: boxName,
+    userId: getUniqueBoxId(),
+    donuts: [],
+  };
+};
+
+export const addDonutBox = (donutShelfData, newName) => {
+  const newShelfData = [...donutShelfData];
+  newShelfData.push(buildDonutBox(newName));
+
+  return newShelfData;
 };
 
 export const addDonutToBox = (donutShelfData, userId, type) => {
