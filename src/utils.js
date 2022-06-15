@@ -19,8 +19,9 @@ export const addDonutToBox = (donutShelfData, userId, type) => {
 
   const newShelfData = [...donutShelfData];
   for (let box = 0; box < newShelfData.length; box++) {
-    console.log("USER IDDDD: ", userId);
-    console.log("box IDDD: ", newShelfData[box].userId);
+    console.log("USER IDDDD!!!: ", userId);
+    console.log("box IDDD!!!: ", newShelfData[box].userId);
+    console.log("box!!!: ", newShelfData[box]);
     if (newShelfData[box].userId === userId) {
       newShelfData[box].donuts.push(buildDonut(type));
       break;
@@ -102,25 +103,3 @@ export const removeDonutFromBox = (donutShelfData, userId, donutId) => {
   }
   return newShelfData;
 };
-
-// export const alterDonutFlavor = (
-//   donutShelfData,
-//   userId,
-//   donutId,
-//   selectedType
-// ) => {
-//   console.log("help");
-//   // There is a bug in this function
-//   const newShelfData = [...donutShelfData];
-//   for (let i = 0; i < newShelfData.length; i++) {
-//     if (newShelfData[i].userId === userId) {
-//       for (let j = 0; j < newShelfData[i].donuts.length; j++) {
-//         if (newShelfData[i].donuts[j].donutId === donutId) {
-//           newShelfData[i].donuts[j].flavor = selectedType;
-//         }
-//       }
-//       break;
-//     }
-//   }
-//   return newShelfData;
-// };
