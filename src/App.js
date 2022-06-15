@@ -32,17 +32,20 @@ const App = () => {
   const handleBoxClick = (userId, donutId) => {
     switch (selectedAction) {
       case actions.sprinkles.action:
+        console.log("sprinkles Clicked");
         // TODO toggle donut sprinkles prop on selected donut using function `alterSprinklesToDonut`
         // and update the `donutShelfData` state
         setDonutShelfData(
-          alterSprinklesToDonut(donutShelfData, userId, selectedType)
+          alterSprinklesToDonut(donutShelfData, userId, donutId)
         );
         break;
       case actions.filled.action:
         // TODO toggle donut filled prop on selected donut using function `alterFillingToDonut`
         // and update the `donutShelfData` state
+        setDonutShelfData(alterFillingToDonut(donutShelfData, userId, donutId));
         break;
       case actions.add.action:
+        console.log("ADD Clicked");
         // TODO add donut to selected box using function `addDonutToBox`
         setDonutShelfData(addDonutToBox(donutShelfData, userId, selectedType));
         break;
@@ -50,11 +53,15 @@ const App = () => {
         console.log("click! add functionality to to delete me");
         // TODO delete selected donut using function `removeDonutFromBox`
         // and update the `donutShelfData` state
+        setDonutShelfData(removeDonutFromBox(donutShelfData, userId, donutId));
         break;
       case actions.flavor.action:
         console.log("click! add functionality to update my flavor");
         // TODO update flavor of selected donut using function `alterDonutFlavor`
         // and update the `donutShelfData` state
+        setDonutShelfData(
+          alterDonutFlavor(donutShelfData, userId, donutId, selectedType)
+        );
         break;
       default:
         console.error("An invalid action was passed to handleBoxClick");

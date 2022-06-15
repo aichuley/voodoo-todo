@@ -44,7 +44,7 @@ const ControlPanel = ({
               selected={selectedType}
               option={el}
               onClick={handleTypeClick}
-              disabled={true} //'ReplaceWithCorrectValue'
+              disabled={false} //'ReplaceWithCorrectValue'
             />
           );
           // This return statement will be returned when `flavorOptions`
