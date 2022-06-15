@@ -20,6 +20,7 @@ export const actions = {
     action: "changeFlavor",
   },
   addbox: {
+    /* new function */
     name: "Add Box",
     action: "addbox",
   },

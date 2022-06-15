@@ -64,6 +64,7 @@ const App = () => {
         console.log("add new box button clicked");
         let newName = window.prompt("Type in your name: ", "");
         newName = newName.concat("'s Box");
+        //call new function
         setDonutShelfData(addDonutBox(donutShelfData, newName));
         break;
       default:

@@ -2,6 +2,7 @@ const getUniqueDonutId = () => {
   return `donut-${Math.floor(Math.random() * 100000 + 1)}`;
 };
 
+//same function as the given donut id one basically
 const getUniqueBoxId = () => {
   return `user-${Math.floor(Math.random() * 100000 + 1)}`;
 };
@@ -15,6 +16,8 @@ const buildDonut = (type) => {
   };
 };
 
+//function that creates a new box given a name for
+//the donut box
 const buildDonutBox = (boxName) => {
   return {
     name: boxName,
@@ -23,6 +26,8 @@ const buildDonutBox = (boxName) => {
   };
 };
 
+//Ashley's new function that builds a donut box and adds it with a given
+//Name :D
 export const addDonutBox = (donutShelfData, newName) => {
   const newShelfData = [...donutShelfData];
   newShelfData.push(buildDonutBox(newName));
